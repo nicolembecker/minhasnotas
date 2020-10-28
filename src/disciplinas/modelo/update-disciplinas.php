@@ -3,36 +3,28 @@
     // Iremos conectar nossa função ao banco de dados
     include('../../conexao/conn.php');
 
-    //Estamos ligando as sessões do sistema ao nosso codigo
     session_start();
 
     $nome = $_REQUEST['nome'];
     $professor = $_REQUEST['professor'];
     $nota = $_REQUEST['nota'];
+    $id = $_REQUEST['id'];
 
     // Verificando se os campos foram preenchidos
-    if(strlen($nome) == 0 || strlen($professor) == 0){
+    if(strlen($id) == 0 || strlen($nome) == 0 || strlen($professor) == 0){
         $dados = array(
             'tipo' => 'alert-warning',
             'mensagem' => 'Por favor preencha todo o formulário!'
         );
     }else{
-        
         // Criaremos uma variável para receber os comandos SQL
-        $sql = "INSERT INTO disciplinas (nome, professor, nota) VALUES ('".$nome."', '".$professor."', '".$nota."', ".$_SESSION['id'].")";
-
+        $sql = "UPDATE disciplinas SET nome = '".$nome."', professor = '".$professor."', nota = '".$nota."', id_alunos = ".$_SESSION['id']." WHERE id = ".$id."";
 
         // Iremos testar a nossa linha SQL, diretamente no banco de dados
         if(mysqli_query($conecta, $sql)){
-            $dados = array(
-                'tipo' => 'alert-success',
-                'mensagem' => 'A disciplina '.$nome.', foi salva com sucesso!'
-            );
+            $dados = array('return' => true);
         }else{
-            $dados = array(
-                'tipo' => 'alert-danger',
-                'mensagem' => 'Deu ruim....'.mysqli_error($conecta)
-            );
+            $dados = array('return' => false);
         }
     }
 

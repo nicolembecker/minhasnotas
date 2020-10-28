@@ -4,54 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APP Minhas Notas</title>
+    <title>Sistem Gerenciador de Boletim Escolar</title>
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="libs/MaterialDesign-Webfont-master/css/materialdesignicons.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url(img/back.png);
+            background-size: 100%;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+        .login {
+            width: 500px;
+            height: 420px;
+            border-radius: 30px 5px 30px 5px;
+            color: rgb(255, 255, 255);
+            background-color: rgba(0, 1, 20, 0.788);
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            box-sizing: border-box;
+            padding: 68px 28px;
+        }
+    </style>
 </head>
 
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="login">
+            <div class="alert alert-dark">
+                <h4 class="text-center">
+                    Login do Sistema
+                </h4>
+            </div>
+            <form id="form-login">
+                <div class="form-group">
+                    <label>ID do aluno:</label>
+                    <input type="number" name="id" id="id" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Senha do aluno:</label>
+                    <input type="password" name="senha" id="senha" class="form-control">
+                </div>
+                <button class="btn btn-dark btn-block btn-login"><i class="mdi mdi-login">Entrar</i></button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
 <body>
-
-    <div class="jumbotron jumbotron-fluid bg-info">
-        <h1 class="display-4 text-center text-white">App Minhas Notas</h1>
-        <p class="lead text-center text-white">Aplicativo de controle do meu desempenho escolar</p>
-    </div>
-
-    <div class="container" id="conteudo">
-        <div class="row">
-            <div class="col-6 col-md-2">
-                <button id="adiciona" class="btn btn-outline-info btn-block">
-                    <h1 class="text-center">
-                        <i class="mdi mdi-plus-circle mdi48px"></i>
-                    </h1>
-                    <p class="text-center">Adicionar Disciplina</p>
-                </button>
-            </div>
-            <div class="col-6 col-md-2">
-                <button id="listar" class="btn btn-outline-info btn-block">
-                    <h1 class="text-center">
-                        <i class="mdi mdi-view-list-outline mdi48px"></i>
-                    </h1>
-                    <p class="text-center">Listar Disciplinas</p>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid border-top mt-5">
-        <div class="row justify-content-center">
-            <div class="col-10 col-md-6">
-                <p class="text-center text-info">
-                    Todos os direitor reservados a Etec de Lins 2020.
-                </p>
-            </div>
-        </div>
-    </div>
-
-
     <script src="js/jquery-3.5.1.js"></script>
     <script src="js/bootstrap.js"></script>
-    <script src="js/function-menu.js"></script>
+    <script src="src/alunos/controle/login-alunos.js"></script>
 </body>
 
 </html>
