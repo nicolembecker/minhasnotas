@@ -3,7 +3,7 @@
     // Iremos conectar nossa função ao banco de dados
     include('../../conexao/conn.php');
 
-    //Estamos ligando as sessões do sistema ao nosso codigo
+    // Estamos ligando as sessões do sistema ao nosso código.
     session_start();
 
     $nome = $_REQUEST['nome'];
@@ -17,11 +17,8 @@
             'mensagem' => 'Por favor preencha todo o formulário!'
         );
     }else{
-        
         // Criaremos uma variável para receber os comandos SQL
-        $sql = "INSERT INTO disciplinas (nome, professor, nota) VALUES ('".$nome."', '".$professor."', '".$nota."', ".$_SESSION['id'].")";
-
-
+        $sql = "INSERT INTO disciplinas (nome, professor, nota, id_alunos) VALUES ('".$nome."', '".$professor."', '".$nota."', ".$_SESSION['id'].")";
         // Iremos testar a nossa linha SQL, diretamente no banco de dados
         if(mysqli_query($conecta, $sql)){
             $dados = array(

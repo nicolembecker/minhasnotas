@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     $('.btn-login').click(function(e) {
         e.preventDefault()
 
@@ -15,9 +16,10 @@ $(document).ready(function() {
                 if (dados.result == true) {
                     $(location).attr('href', 'painel.html')
                 } else {
+                    // Demonstrar se deu certo ou errado...
                     $('#form-login').after(`
                     <div class="alert alert-danger alert-dismissible fade show mt-5" role="alert">
-                        <strong>ID ou Senha Incorretos... Tente novamente! </strong>
+                        <strong>Id ou senha informado errado...tente novamente!</strong>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
@@ -31,4 +33,5 @@ $(document).ready(function() {
             }
         })
     })
+
 })
